@@ -61,6 +61,7 @@ p, h1, h2, h3, h4, h5, h6 {
     --light-orange: #FBDABB;
     --grey: #EDEFEE;
     --black: #333333;
+    --max-width: 720px;
   }
 
 a {
@@ -73,6 +74,7 @@ h1 {
   font-family: "Markazi Text";
   font-size: 64px;
   font-weight: 500;
+  color: var(--yellow);
 }
 
 /* Subtitle */
@@ -80,6 +82,8 @@ h2 {
   font-family: "Markazi Text";
   font-size: 40px;
   font-weight: 400;
+  color: var(--grey);
+  margin-top: -20px;
 }
 
 /* Section Title */
@@ -129,6 +133,8 @@ nav {
 
 .header {
   display: flex;
+  max-width: var(--max-width);
+  margin: auto;
 }
 
 .list {
@@ -138,11 +144,12 @@ nav {
 
 .nav-list {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .nav-list-item {
   font-family: "Karla";
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   padding: 12px;
 }
@@ -151,14 +158,47 @@ nav {
   color: var(--black);
 }
 
-.footer {
+.hero-bg {
+  background-color: var(--green);
+}
+
+.hero-container {
+  max-width: var(--max-width);
+  margin: auto;
   display: flex;
+  justify-content: space-between;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.heroimg-container {
+  max-width: 40%;
+  margin-bottom: -4rem;
+  padding-left: 2rem;
+  padding-top: 1.5rem;
+}
+
+.hero-text {
+  max-width: 50%;
+  color: var(--grey);
+}
+.hero-image {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+.footer {
+  max-width: var(--max-width);
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
   background-color: var(--green);
   color: var(--grey);
+  justify-content: space-between;
 }
 
 .footer-section {
-  padding: 2rem;
   font-size: 12px;
 }
 
@@ -167,7 +207,7 @@ nav {
 }
 
 .footer-section a {
-  color: var(--grey)
+  color: var(--grey);
 }
 
 

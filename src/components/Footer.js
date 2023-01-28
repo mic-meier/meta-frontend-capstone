@@ -1,9 +1,6 @@
-import Logo from "../assets/Logo.svg";
-
 export default function Footer({ children }) {
   return (
     <footer className="footer">
-      <img src={Logo} alt="Little Lemon Logo" />
       <div className="footer-section">
         <h6>Nav</h6>
         <ul className="list">
