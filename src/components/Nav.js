@@ -16,10 +16,7 @@ const LINKS = [
 const NavLink = ({ href, children }) => {
   return (
     <div className="px-5 py-2">
-      <Link
-        to={href}
-        className="font-leading font-medium text-black hover:text-yellow"
-      >
+      <Link to={href} className="font-leading font-medium hover:text-yellow">
         {children}
       </Link>
     </div>
@@ -85,7 +82,7 @@ const MobileMenu = () => {
 export default function NavBar() {
   return (
     <header className="pt-6 pb-2">
-      <nav className="mx-auto flex max-w-prose items-center justify-between px-4 lg:max-w-screen-lg">
+      <nav className="mx-auto flex items-center justify-between p-4 lg:max-w-screen-lg">
         <div className="py-2 pr-2 text-2xl lg:text-4xl">
           <Link to="/">
             <img src={Logo} alt="Little Lemon Logo" />

@@ -12,7 +12,7 @@ export default function Footer({ children }) {
 
   return (
     <footer className="bg-green">
-      <div className="justify-betweenp-4 mx-auto grid max-w-prose grid-cols-3 p-4 text-grey md:grid-cols-3 lg:max-w-screen-lg">
+      <div className="mx-auto grid max-w-prose grid-cols-3 justify-between p-4 py-4 text-grey md:grid-cols-3 lg:max-w-screen-lg">
         <div className="">
           <ul className="list">
             {LINKS.map((link) => (
