@@ -1,7 +1,6 @@
-import "./App.css";
+import { Outlet } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import Hero from "./components/Hero";
 import Main from "./components/Main";
 import Nav from "./components/Nav";
 
@@ -12,7 +11,7 @@ function App() {
         <Nav />
       </Header>
       <Main>
-        <Hero />
+        <Outlet />
       </Main>
       <Footer />
     </>
