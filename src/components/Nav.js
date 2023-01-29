@@ -1,17 +1,17 @@
-import { Popover, Transition } from "@headlessui/react";
-import { Bars3Icon } from "@heroicons/react/24/outline";
-import { Fragment } from "react";
-import { Link } from "react-router-dom";
-import Logo from "../assets/Logo.svg";
+import { Popover, Transition } from '@headlessui/react'
+import { Bars3Icon } from '@heroicons/react/24/outline'
+import { forwardRef, Fragment } from 'react'
+import { Link } from 'react-router-dom'
+import Logo from '../assets/Logo.svg'
 
 const LINKS = [
-  { name: "Home", to: "/" },
-  { name: "About", to: "about" },
-  { name: "Menu", to: "menu" },
-  { name: "Reservations", to: "reservations" },
-  { name: "Order Online", to: "order" },
-  { name: "Login", to: "login" },
-];
+  { name: 'Home', to: '/' },
+  { name: 'About', to: 'about' },
+  { name: 'Menu', to: 'menu' },
+  { name: 'Reservations', to: 'reservations' },
+  { name: 'Order Online', to: 'order' },
+  { name: 'Login', to: 'login' },
+]
 
 const NavLink = ({ href, children }) => {
   return (
@@ -23,21 +23,23 @@ const NavLink = ({ href, children }) => {
         {children}
       </Link>
     </div>
-  );
-};
+  )
+}
 
-const NavMobileLink = ({ href, children }) => {
+const NavMobileLink = forwardRef((props, ref) => {
+  const { href, children } = props
   return (
     <div className="list-none border-b border-green bg-white py-2">
       <Link
         to={href}
-        className="underlined px-5vw block whitespace-nowrap py-9 text-center text-lg font-medium font-leading"
+        className="underlined px-5vw block whitespace-nowrap py-9 text-center font-leading text-lg font-medium"
+        ref={ref}
       >
         {children}
       </Link>
     </div>
-  );
-};
+  )
+})
 
 const MobileMenu = () => {
   return (
@@ -77,13 +79,13 @@ const MobileMenu = () => {
         </>
       )}
     </Popover>
-  );
-};
+  )
+}
 
 export default function NavBar() {
   return (
     <header className="pt-6 pb-2">
-      <nav className="mx-auto flex max-w-prose items-center justify-between px-4 lg:max-w-4xl">
+      <nav className="mx-auto flex max-w-prose items-center justify-between px-4 lg:max-w-screen-lg">
         <div className="py-2 pr-2 text-2xl lg:text-4xl">
           <Link to="/">
             <img src={Logo} alt="Little Lemon Logo" />
@@ -103,5 +105,5 @@ export default function NavBar() {
         </div>
       </nav>
     </header>
-  );
+  )
 }

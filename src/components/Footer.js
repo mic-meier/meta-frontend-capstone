@@ -1,41 +1,40 @@
+import { Link } from 'react-router-dom'
+
 export default function Footer({ children }) {
+  const LINKS = [
+    { name: 'Home', to: '/' },
+    { name: 'About', to: 'about' },
+    { name: 'Menu', to: 'menu' },
+    { name: 'Reservations', to: 'reservations' },
+    { name: 'Order Online', to: 'order' },
+    { name: 'Login', to: 'login' },
+  ]
+
   return (
-    <footer className="footer">
-      <div className="footer-section">
-        <h6>Nav</h6>
-        <ul className="list">
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/">About</a>
-          </li>
-          <li>
-            <a href="/">Menu</a>
-          </li>
-          <li>
-            <a href="/">Reservation</a>
-          </li>
-          <li>
-            <a href="/">Order Online</a>
-          </li>
-          <li>
-            <a href="/">Login</a>
-          </li>
-        </ul>
-      </div>
-      <div className="footer-section">
-        <h6>Contact</h6>
-        <p>Address</p>
-        <p>Phone Number</p>
-        <p>email</p>
-      </div>
-      <div className="footer-section">
-        <h6>Social Media Links</h6>
-        <p>Address</p>
-        <p>Phone Number</p>
-        <p>email</p>
+    <footer className="bg-green">
+      <div className="justify-betweenp-4 mx-auto grid max-w-prose grid-cols-3 p-4 text-grey md:grid-cols-3 lg:max-w-screen-lg">
+        <div className="">
+          <ul className="list">
+            {LINKS.map((link) => (
+              <li>
+                <Link to={link.to} className="font-paragraph text-xs">
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="font-paragraph text-xs">
+          <p className="py-1">Address</p>
+          <p className="py-1">Phone Number</p>
+          <p className="py-1">email</p>
+        </div>
+        <div className="font-paragraph text-xs">
+          <p className="py-1">Address</p>
+          <p className="py-1">Phone Number</p>
+          <p className="py-1">email</p>
+        </div>
       </div>
     </footer>
-  );
+  )
 }
