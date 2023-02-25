@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import Button from './Button'
 
-export default function BookingForm() {
-  const availableTimes = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']
+export default function BookingForm({ availableTimes }) {
   const [date, setDate] = useState('')
   const [bookingTime, setBookingTime] = useState(availableTimes[0])
   const [numberOfGuests, setNumberOfGuests] = useState(1)
