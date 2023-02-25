@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Button from './Button'
 
-export default function BookingForm({ availableTimes }) {
+export default function BookingForm({ availableTimes, dispatch }) {
   const [date, setDate] = useState('')
   const [bookingTime, setBookingTime] = useState(availableTimes[0])
   const [numberOfGuests, setNumberOfGuests] = useState(1)
@@ -9,10 +9,6 @@ export default function BookingForm({ availableTimes }) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(date)
-    console.log(bookingTime)
-    console.log(numberOfGuests)
-    console.log(occasion)
   }
 
   return (
@@ -28,7 +24,10 @@ export default function BookingForm({ availableTimes }) {
         id="res-date"
         className="mb-8"
         value={date}
-        onChange={(e) => setDate(e.target.value)}
+        onChange={(e) => {
+          setDate(e.target.value)
+          dispatch(date)
+        }}
       />
       <label htmlFor="res-time">Choose time</label>
       <select
