@@ -16,7 +16,7 @@ export default function Footer({ children }) {
         <div className="">
           <ul className="list">
             {LINKS.map((link) => (
-              <li>
+              <li key={link.name}>
                 <Link to={link.to} className="font-paragraph text-xs">
                   {link.name}
                 </Link>
