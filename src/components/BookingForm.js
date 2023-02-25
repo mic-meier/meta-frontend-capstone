@@ -1,21 +1,22 @@
 import { useState } from 'react'
 import Button from './Button'
 
-export default function BookingForm({ availableTimes, dispatch }) {
+export default function BookingForm({
+  availableTimes,
+  dispatch,
+  handleSubmit,
+}) {
   const [date, setDate] = useState('')
   const [bookingTime, setBookingTime] = useState(availableTimes[0])
   const [numberOfGuests, setNumberOfGuests] = useState(1)
   const [occasion, setOccasion] = useState('Birthday')
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-  }
 
   return (
     <form
       className="mx-auto my-12 grid max-w-sm font-leading"
       onSubmit={handleSubmit}
     >
+      <h1 className="mx-auto p-12 text-xl font-bold">Book Now</h1>
       <label htmlFor="res-date" className="">
         Choose date
       </label>

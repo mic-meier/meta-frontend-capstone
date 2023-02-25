@@ -2,19 +2,14 @@ import { useReducer } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { About, Home, Login, Menu, Order, Reservations } from '../routes'
 
+export const times = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']
+
+export const initializeTimes = () => times
+
+export const updateTimes = (state) => state
+
 export default function Main({ children }) {
-  const reducer = () => {}
-
-  const initializeTimes = () => [
-    '17:00',
-    '18:00',
-    '19:00',
-    '20:00',
-    '21:00',
-    '22:00',
-  ]
-
-  const [availableTimes, dispatch] = useReducer(reducer, initializeTimes())
+  const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes())
 
   return (
     <main className="text-black">
