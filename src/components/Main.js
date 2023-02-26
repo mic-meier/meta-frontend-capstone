@@ -1,15 +1,25 @@
 import { useReducer } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useNavigate } from 'react-router-dom'
+import { fetchAPI, submitAPI } from '../api'
 import { About, Home, Login, Menu, Order, Reservations } from '../routes'
+import ConfirmedBooking from '../routes/ConfirmedBooking'
 
-export const times = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']
+export const initializeTimes = () => fetchAPI(new Date())
 
-export const initializeTimes = () => times
-
-export const updateTimes = (state) => state
+export const updateTimes = (state, action) => {
+  const timeSlots = fetchAPI(new Date(action))
+  return timeSlots
+}
 
 export default function Main({ children }) {
   const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes())
+  const navigate = useNavigate()
+
+  const submitForm = (formData) => {
+    const result = submitAPI(formData)
+
+    if (result) navigate('confirmed')
+  }
 
   return (
     <main className="text-black">
@@ -20,11 +30,16 @@ export default function Main({ children }) {
         <Route
           path="reservations"
           element={
-            <Reservations availableTimes={availableTimes} dispatch={dispatch} />
+            <Reservations
+              availableTimes={availableTimes}
+              dispatch={dispatch}
+              submitForm={submitForm}
+            />
           }
         />
         <Route path="order" element={<Order />} />
         <Route path="login" element={<Login />} />
+        <Route path="confirmed" element={<ConfirmedBooking />} />
       </Routes>
     </main>
   )

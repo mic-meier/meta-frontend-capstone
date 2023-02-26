@@ -41,6 +41,7 @@ export default function Specials() {
             price={special.price}
             description={special.description}
             imgSrc={special.imgSrc}
+            key={special.name}
           />
         ))}
       </div>

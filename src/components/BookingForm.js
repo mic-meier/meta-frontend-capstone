@@ -1,20 +1,26 @@
 import { useState } from 'react'
 import Button from './Button'
 
-export default function BookingForm({
-  availableTimes,
-  dispatch,
-  handleSubmit,
-}) {
+export default function BookingForm({ availableTimes, dispatch, submitForm }) {
   const [date, setDate] = useState('')
   const [bookingTime, setBookingTime] = useState(availableTimes[0])
   const [numberOfGuests, setNumberOfGuests] = useState(1)
   const [occasion, setOccasion] = useState('Birthday')
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    submitForm({
+      date,
+      bookingTime,
+      numberOfGuests,
+      occasion,
+    })
+  }
+
   return (
     <form
       className="mx-auto my-12 grid max-w-sm font-leading"
-      onSubmit={handleSubmit}
+      onSubmit={(e) => handleSubmit(e)}
     >
       <h1 className="mx-auto p-12 text-xl font-bold">Book Now</h1>
       <label htmlFor="res-date" className="">
@@ -27,7 +33,7 @@ export default function BookingForm({
         value={date}
         onChange={(e) => {
           setDate(e.target.value)
-          dispatch(date)
+          dispatch(e.target.value)
         }}
       />
       <label htmlFor="res-time">Choose time</label>
